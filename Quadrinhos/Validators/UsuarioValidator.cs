@@ -15,6 +15,9 @@ namespace Quadrinhos.Validators
 
             RuleFor(x => x.Senha)
                 .NotEmpty().WithMessage("Informe a senha");
+
+            RuleFor(x => x.Role)
+                .NotEmpty().WithMessage("Informe a função do usuário");
         }
     }
 }
