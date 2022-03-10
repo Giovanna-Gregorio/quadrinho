@@ -7,7 +7,7 @@ API desenvolvida para um loja de venda de quadrinhos
   - cliente: permissão de comprar quadrinhos
   
 - Restrição de endpoints
-  - Se não houver token de autenticação, se o token for inválido ou se o usuário não tiver a função necessária, a api retornará 401 (Unauthorized)
+  - Se não houver token de autenticação, se o token for inválido ou se o usuário não tiver a função necessária, a api retornará 401 (Unauthorized) ou 403 (Forbidden)
   
 - Autenticação no Swagger
   - Bearer + token gerado no login

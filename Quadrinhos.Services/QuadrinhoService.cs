@@ -18,18 +18,19 @@ namespace Quadrinhos.Services
 
         public async Task<int> ComprarQuadrinho(CompraContract compra)
         {
+            var quadrinho = base.Get(compra.IdQuadrinho)
+                .AsNoTracking()
+                .FirstOrDefault();
+
             var venda = new Venda()
             {
                 UsuarioId = 1,
                 QuadrinhoId = compra.IdQuadrinho,
-                Qtde = compra.Qtde
+                Qtde = compra.Qtde,
+                ValorTotal = compra.Qtde * quadrinho.Preco
             };
 
             await _vendaService.Insert(venda);
-
-            var quadrinho = base.Get(compra.IdQuadrinho)
-                .AsNoTracking()
-                .FirstOrDefault();
 
             quadrinho.QtdeEstoque -= compra.Qtde;
 

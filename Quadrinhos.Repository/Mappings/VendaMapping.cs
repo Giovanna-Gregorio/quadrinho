@@ -26,6 +26,9 @@ namespace Quadrinhos.Repository.Mappings
             builder.Property(x => x.Qtde)
                .HasColumnName("qtde");
 
+            builder.Property(x => x.ValorTotal)
+               .HasColumnName("valor_total");
+
             builder.Property(x => x.DataInclusao)
                .HasColumnName("data_inclusao");
 

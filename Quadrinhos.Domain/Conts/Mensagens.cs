@@ -21,5 +21,7 @@
         public const string QtdeInsuficiente = "Quantidade de quadrinhos indisponível.";
 
         public const string SucessoLogin = "Login realizado com sucesso.";
+
+        public const string EmailCadastrado = "Email já cadastrado.";
     }
 }

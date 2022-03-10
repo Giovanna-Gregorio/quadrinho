@@ -30,7 +30,7 @@ namespace Quadrinhos.Controllers
             {
                 var token = TokenService.GenerateToken(usuario);
 
-                result.Data = token;
+                result.Data = new { usuario, token };
                 result.Message = Mensagens.SucessoLogin;
 
                 return Ok(result);
