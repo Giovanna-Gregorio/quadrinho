@@ -37,7 +37,7 @@ namespace Quadrinhos.Controllers
         }
 
         [HttpGet]
-        public virtual IActionResult Get([FromQuery] string search, string order, string direction, int limit = 0, int offset = 0)
+        public virtual IActionResult Get([FromQuery] int limit = 0, int offset = 0)
         {
             var result = new ListResultBase<IList<TModel>>();
 
@@ -46,16 +46,6 @@ namespace Quadrinhos.Controllers
                 var list = new List<TModel>();
 
                 var query = _service.Get().AsNoTracking();
-
-                if (!string.IsNullOrEmpty(search))
-                {
-                    query = query.Where("Nome.ToLower().Contains(@0)", search.ToLower());
-                }
-
-                if (!string.IsNullOrEmpty(order))
-                {
-                    query = query.OrderBy($"{order} {(direction == "-1" ? "desc" : string.Empty)}");
-                }
 
                 result.Count = query.Count();
 

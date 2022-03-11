@@ -17,9 +17,9 @@ namespace Quadrinhos.Controllers
 
         [Authorize(Roles = "adm")]
         [HttpGet]
-        public override IActionResult Get([FromQuery] string search, string order, string direction, int limit = 0, int offset = 0)
+        public override IActionResult Get([FromQuery] int limit = 0, int offset = 0)
         {
-            return base.Get(search, order, direction, limit, offset);
+            return base.Get(limit, offset);
         }
 
         [Authorize]
