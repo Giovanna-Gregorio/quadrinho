@@ -20,6 +20,7 @@ namespace Quadrinhos.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
+                    new Claim("Id", usuario.Id.ToString()),
                     new Claim(ClaimTypes.Name, usuario.Nome),
                     new Claim(ClaimTypes.Role, usuario.Role)
                 }),
